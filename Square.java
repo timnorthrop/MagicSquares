@@ -22,8 +22,9 @@ public class Square
             d1[i] = d1[random];
             d1[random] = temp;
         }
-        for(int i = 0; i < order*order; i++){
-            
+        //for int
+        for(int i = 0; i < order; i++){
+            data[0][i] = d1[i];
         }
     }
     
