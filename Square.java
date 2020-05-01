@@ -1,4 +1,4 @@
-
+import java.util.Scanner;
 /**
  * Write a description of class Square here.
  *
@@ -9,8 +9,25 @@ public class Square
 {
     private int dimension;
     private int[][] data;
+
+    public Square(String input){
+        int row = -1;
+        int col = 0;
+        for(int index = 1; index < input.length(); index++){
+            if(input.charAt(index) == '{'){
+                row++;
+            } else if(input.charAt(index) == '}'){
+                col = 0;
+                index += 3;
+            } else if(input.charAt(index) == ',' && !(input.charAt(index-1) == '}')){
+                index++;
+            } else {
+                data[row][col] = Integer.parseInt(Character.toString(input.charAt(index)));
+            }
+        }
+    }
     
-    public void magicSquare(int order){
+    public Square(int order){
         dimension = order;
         int[] d1 = new int[order*order];
         for(int i = 1; i <= order*order; i++){
@@ -22,16 +39,17 @@ public class Square
             d1[i] = d1[random];
             d1[random] = temp;
         }
-        //for int
-        for(int i = 0; i < order; i++){
-            data[0][i] = d1[i];
+        for(int row = 0; row < order; row++){
+            for(int i = 0; i < order; i++){
+                data[row][i] = d1[i+row*3];
+            }
         }
     }
-    
+
     public String toString(){
         String toString = "";
         for(int i = 0; i < dimension; i++){
-            
+
         }
         return toString;
     }
