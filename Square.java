@@ -45,6 +45,18 @@ public class Square
             }
         }
     }
+    
+    public boolean isMagic(){
+        boolean verts = false;
+        boolean horis = false;
+        for(int i = 0; i < data.length; i++){
+            
+        }
+        if(verts&&horis){
+            return true;
+        }
+        return false;
+    }
 
     public String toString(){
         String toString = "";
