@@ -61,7 +61,10 @@ public class Square
     public String toString(){
         String toString = "";
         for(int i = 0; i < dimension; i++){
-
+            for (int col = 0; col < dimension; col++){
+                toString = toString + Integer.toString(data[i][col]) + "\t";
+            }
+            toString = toString + "\n";
         }
         return toString;
     }
